@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NextGenCV</title>
+    <link rel="stylesheet" href="{% static 'css/Dashboard.css' %}">
+</head>
+<body>
+
+    <!-- Only include header and sidebar -->
+    {% include 'NextGenCV/header.html' %}
+    {% include 'NextGenCV/sidebar.html' %}
+
+    <main class="main-content">
+        <section class="dashboard-welcome">
+            <h2>Welcome back, {{ user.username }}!</h2>
+            <p>Manage and build your resumes with ease.</p>
+        </section>
+
+        <section class="dashboard-widgets">
+            <div class="widget">
+                <h3>Create a New Resume</h3>
+                <p>Use our builder to create a fresh resume.</p>
+                <a href="{% url 'create_resume' %}" class="widget-btn">Start Now</a>
+            </div>
+            <div class="widget">
+                <h3>Resume Templates</h3>
+                <p>Choose from a variety of resume templates.</p>
+                <a href="#" class="widget-btn">Browse Templates</a>
+            </div>
+            <div class="widget">
+                <h3>Saved Resumes</h3>
+                <p>View and edit your saved resumes.</p>
+                <a href="#" class="widget-btn">View Resumes</a>
+            </div>
+        </section>
+
+        <br>
+        {% if resume %}
+        <h2>Your Resume</h2>
+        <p><strong>Name:</strong> {{ resume.First_Name }} {{ resume.Last_Name }}</p>
+        <p><strong>Email:</strong> {{ resume.email }}</p>
+        <p><strong>Phone:</strong> {{ resume.phone }}</p>
+        <p><strong>Summary:</strong> {{ resume.summary }}</p>
+        <p><strong>Education:</strong> {{ resume.education }}</p>
+        <p><strong>Experience:</strong> {{ resume.experience }}</p>
+        <p><strong>Skills:</strong> {{ resume.skills }}</p>
+        <p><strong>address:</strong> {{ resume.address }}</p>
+        <p><strong>Profile image :</strong> {{ resume.profile_image }}</p>
+        
+        
+        {% else %}
+        <p>No resume found. <a href="{% url 'create_resume' %}">Create one now</a></p>
+        {% endif %}
+    </main>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

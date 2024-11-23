@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Resume - NextGenCV</title>
+    <link rel="stylesheet" href="{% static 'css/CreateResume.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    {% include 'NextGenCV/header.html' %}
+    <button type="button" class="btn btn-secondary Goback" style="margin-left: 10px; width: 100px;" onclick="window.location.href='{% url 'dashboard' %}'">
+        <span class="text">Go Back</span>
+    </button>
+    <main class="main-container">
+        <div class="form-container" style="width: 50%;">
+            <h1>Create Your Resume</h1>
+            <div class="progress-indicator">
+                <span>Step <span id="current-step">1</span> of 5</span>
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <form id="resume-form" method="POST" enctype="multipart/form-data" onsubmit="submitForm(event)">
+                {% csrf_token %}
+                <!-- Personal Information Section -->
+                <div class="section collapsible" id="personal-info">
+                    <h2><i class="icon-person"></i> Personal Information</h2>
+                    <div class="profile-picture" style="text-align: center;">
+                        <img src="{% static 'images/profile-placeholder.png' %}" alt="Profile Picture" id="profileImg" style="width: 80px; height: 80px; border-radius: 50%;">
+                        <div class="input-group" style="margin-top: 10px;">
+                            <label for="profile-image" class="btn btn-secondary btn-sm">Upload Profile Picture</label>
+                            <input type="file" id="profile-image" accept="image/*" onchange="previewImage(event)" style="display: none;">
+                        </div>
+                        <label style="display: block; margin-top: 5px;">
+                            <input type="checkbox" checked> Show picture
+                        </label>
+                    </div>
+                    <div class="input-group d-flex">
+                        <div class="flex-fill me-4" style="max-width: 200px;">
+                            <label>First Name</label>
+                            <input type="text" id="first-name" placeholder="Enter your first name" oninput="updatePreview()" style="width: 100%;">
+                        </div>
+                        <div class="flex-fill" style="max-width: 200px;">
+                            <label>Last Name</label>
+                            <input type="text" id="last-name" placeholder="Enter your last name" oninput="updatePreview()" style="width: 100%; margin-left: 10px;">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="text" id="phone" placeholder="Enter your phone number" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Date of Birth</label>
+                        <input type="date" id="dob" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Nationality</label>
+                        <input type="text" id="nationality" placeholder="Enter your nationality" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Address</label>
+                        <input type="text" id="address" placeholder="Enter your address" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>City</label>
+                        <input type="text" id="city" placeholder="Enter your city" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Postal Code</label>
+                        <input type="text" id="postal-code" placeholder="Enter your postal code" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Country</label>
+                        <input type="text" id="country" placeholder="Enter your country" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Website</label>
+                        <input type="url" id="website" placeholder="Enter your website" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>About You</label>
+                        <textarea id="about-you" name="about_you" placeholder="Tell us about yourself..." oninput="updatePreview()"></textarea>
+                    </div>
+                </div>
+                <!-- Work Experience Section -->
+                <div class="section collapsible" id="work-experience">
+                    <h2><i class="icon-briefcase"></i> Work Experience</h2>
+                    <div class="input-group">
+                        <label>Company Name</label>
+                        <input type="text" id="company-name" placeholder="Company name" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Job Title</label>
+                        <input type="text" id="job-title" placeholder="Job title" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>From</label>
+                        <input type="date" id="work-from" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>To</label>
+                        <input type="date" id="work-to" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Description</label>
+                        <textarea id="work-description" placeholder="Description" oninput="updatePreview()"></textarea>
+                    </div>
+                </div>
+                <!-- Education Section -->
+                <div class="section collapsible" id="education">
+                    <h2><i class="icon-graduation"></i> Education</h2>
+                    <div class="input-group">
+                        <label>Institution Name</label>
+                        <input type="text" id="institution-name" placeholder="Institution name" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Degree</label>
+                        <input type="text" id="degree" placeholder="Degree" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>From</label>
+                        <input type="date" id="edu-from" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>To</label>
+                        <input type="date" id="edu-to" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Description</label>
+                        <textarea id="edu-description" placeholder="Description" oninput="updatePreview()"></textarea>
+                    </div>
+                </div>
+                <!-- Skills Section -->
+                <div class="section collapsible" id="skills">
+                    <h2><i class="icon-star"></i> Skills</h2>
+                    <div class="input-group">
+                        <label>Skill Name</label>
+                        <input type="text" id="skill-name" placeholder="Skill name" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>Skill Level (1 to 5)</label>
+                        <input type="range" id="skill-level" min="1" max="5" value="3" oninput="updatePreview()" style="width: 100%;">
+                        <span id="skill-level-display">3</span>
+                    </div>
+                </div>
+                <!-- Profile Summary Section -->
+                <div class="section collapsible" id="profile-summary">
+                    <h2><i class="icon-file-text"></i> Profile Summary</h2>
+                    <div class="input-group">
+                        <label>Profile Summary</label>
+                        <textarea id="summary" placeholder="Add information about yourself..." oninput="updatePreview()"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>About You</label>
+                        <textarea id="about-you" placeholder="Tell us about yourself..." oninput="updatePreview()"></textarea>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" id="save-draft" onclick="saveResume()">
+                        <span class="text">Save Resume</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary ml-3" onclick="submitForm(event)">
+                        <span class="text">Create Resume</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary ml-3" onclick="downloadResume('pdf')">Download as PDF</button>
+                </div>
+            </form>
+        </div>
+        <div class="preview-container" style="max-width: 100%; height: auto;">
+            <h2>Preview</h2>
+            <div class="resume-preview" id="resume-preview">
+                <div class="resume-header">
+                    <img id="preview-image" src="" alt="Profile Image" style="max-width: 100%; height: auto;">
+                    <h1 id="preview-name"></h1>
+                    <p id="preview-email"></p>
+                    <p id="preview-phone"></p>
+                    <p id="preview-address"></p>
+                    <p id="preview-nationality"></p>
+                </div>
+                <div class="resume-section">
+                    <h2>Profile Summary</h2>
+                    <p id="preview-summary"></p>
+                    <p id="preview-about"></p>
+                </div>
+                <div class="resume-section">
+                    <h2>Work Experience</h2>
+                    <p id="preview-work"></p>
+                </div>
+                <div class="resume-section">
+                    <h2>Education</h2>
+                    <p id="preview-education"></p>
+                </div>
+                <div class="resume-section">
+                    <h2>Skills</h2>
+                    <ul class="skills-list" id="preview-skills"></ul>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+        const downloadBaseUrl = "{% url 'download_resume' 'format' %}".replace('format', ''); // Base URL without format
+
+        function updatePreview() {
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const nationality = document.getElementById('nationality').value;
+            const summary = document.getElementById('summary').value;
+            const aboutYou = document.getElementById('about-you').value;
+            const companyName = document.getElementById('company-name').value;
+            const jobTitle = document.getElementById('job-title').value;
+            const workFrom = document.getElementById('work-from').value;
+            const workTo = document.getElementById('work-to').value;
+            const workDescription = document.getElementById('work-description').value;
+            const institutionName = document.getElementById('institution-name').value;
+            const degree = document.getElementById('degree').value;
+            const eduFrom = document.getElementById('edu-from').value;
+            const eduTo = document.getElementById('edu-to').value;
+            const eduDescription = document.getElementById('edu-description').value;
+            const skillName = document.getElementById('skill-name').value;
+            const skillLevel = document.getElementById('skill-level').value;
+
+            document.getElementById('preview-name').innerText = `${firstName} ${lastName}`;
+            document.getElementById('preview-email').innerText = `Email: ${email}`;
+            document.getElementById('preview-phone').innerText = `Phone: ${phone}`;
+            document.getElementById('preview-address').innerText = `Address: ${address}`;
+            document.getElementById('preview-nationality').innerText = `Nationality: ${nationality}`;
+            document.getElementById('preview-summary').innerText = summary;
+            document.getElementById('preview-work').innerText = `${jobTitle} at ${companyName} (${workFrom} - ${workTo}): ${workDescription}`;
+            document.getElementById('preview-education').innerText = `${degree} from ${institutionName} (${eduFrom} - ${eduTo}): ${eduDescription}`;
+            document.getElementById('preview-skills').innerHTML = `<li>${skillName} - Level: ${skillLevel}</li>`;
+            document.getElementById('preview-about').innerText = aboutYou;
+
+            document.getElementById('skill-level-display').innerText = skillLevel;
+        }
+
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const output = document.getElementById("profileImg");
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function downloadResume(format) {
+            const formData = new FormData(document.getElementById('resume-form'));
+            const url = `/resume/download/${format}/`; // Ensure this URL matches your Django URL configuration
+
+            fetch(url, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken') // Ensure CSRF token is included
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.blob(); // Get the response as a blob
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `resume.${format}`; // Set the filename based on the format
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+
+        // Function to get CSRF token
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Check if this cookie string begins with the name we want
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function saveResume() {
+            const formData = new FormData(document.getElementById('resume-form'));
+            const url = "{% url 'create_resume' %}"; // URL to save the resume
+
+            fetch(url, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken') // Ensure CSRF token is included
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json(); // Expecting a JSON response
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                // Update the live preview with the saved data
+                updateLivePreview(data);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+
+        function submitForm(event) {
+            event.preventDefault(); // Prevent default form submission
+            const form = document.getElementById('resume-form');
+            const formData = new FormData(form);
+
+            fetch("{% url 'create_resume' %}", {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken') // Ensure CSRF token is included
+                }
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        }
+
+        function updateLivePreview(data) {
+            document.getElementById('preview-name').innerText = `${data.first_name} ${data.last_name}`;
+            document.getElementById('preview-email').innerText = `Email: ${data.email}`;
+            document.getElementById('preview-phone').innerText = `Phone: ${data.phone}`;
+            document.getElementById('preview-address').innerText = `Address: ${data.address}`;
+            document.getElementById('preview-nationality').innerText = `Nationality: ${data.nationality}`;
+            document.getElementById('preview-summary').innerText = data.summary;
+            document.getElementById('preview-work').innerText = `${data.job_title} at ${data.company_name} (${data.work_from} - ${data.work_to}): ${data.work_description}`;
+            document.getElementById('preview-education').innerText = `${data.degree} from ${data.institution_name} (${data.edu_from} - ${data.edu_to}): ${data.edu_description}`;
+            document.getElementById('preview-skills').innerHTML = `<li>${data.skill_name} - Level: ${data.skill_level}</li>`;
+            document.getElementById('preview-about').innerText = data.about_you;
+        }
+    </script>
+</body>
+</html>

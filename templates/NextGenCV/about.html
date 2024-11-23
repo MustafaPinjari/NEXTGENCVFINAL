@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - NextGenCV</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    {% include "NextGenCV/navbar.html" %}
+
+    <section class="about-section">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="{% static 'images/developer.jpg' %}" alt="Mustafa Pinjari">
+            </div>
+            <div class="about-description">
+                <h1>Mustafa Pinjari</h1>
+                <h2>Full Stack Developer | Final Year Student</h2>
+                <p>Hello! My name is Mustafa Pinjari, and I am a dedicated student currently pursuing my final year in Computer Applications. With a deep passion for technology, development, and creativity, I strive to push boundaries and explore innovative solutions in the world of software engineering. My academic journey has been enriched by hands-on projects and practical learning, fueling my enthusiasm for coding and creating applications that solve real-world challenges. Currently, I am working on NextGenCV, an AI-powered resume builder developed using Django. This project is designed to simplify the process of creating professional resumes, showcasing my skills in web development, backend programming, and user-centric design. Beyond academics, I am an avid learner who loves exploring new technologies and aspires to engineer solutions that can make a significant impact in the tech industry. With a vision to change the world through skill and innovation, I am eager to contribute to a future driven by creativity and technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <h1 class="projects-title">Projects</h1>
+        <div class="container" style="display: flex; height: 100%; width: 100%; align-items: center; justify-content: center;">
+            <div class="grid" style="display: grid; height: 100%; width: 100%; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 16px; padding: 8px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.1);">
+                
+                <!-- Project Card 1 -->
+                <div class="project-card" style="grid-column: span 2; grid-row: span 1;">
+                    <img src="{% static 'images/naruto.png' %}" alt="NextGenCV" class="project-image">
+                    <div class="project-details">
+                        <h3>Infinite Tsukuyomi</h3>
+                        <p>A tribute website to Naruto Shippuden</p>
+                        <a href="https://github.com/MustafaPinjari/NextGenCV" class="project-link" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <img src="{% static 'images/Tulja.png' %}" alt="Weather App" class="project-image">
+                    <div class="project-details">
+                        <h3>Tulja</h3>
+                        <p>A hotel management system</p>
+                        <a href="#" class="project-link" target="_blank">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <img src="{% static 'images/nautralise.png' %}" alt="Chat App" class="project-image">
+                    <div class="project-details">
+                        <h3>Naturalise</h3>
+                        <p>A Full Stack E-commerce website.</p>
+                        <a href="#" class="project-link" target="_blank">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Additional Project Card 4 -->
+                <div class="project-card">
+                    <img src="{% static 'images/stellars.png' %}" alt="Project 4" class="project-image">
+                    <div class="project-details">
+                        <h3>Stellars</h3>
+                        <p>A website for a Digital Marketing startup company.</p>
+                        <a href="#" class="project-link" target="_blank">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Additional Project Card 5 -->
+                <div class="project-card">
+                    <img src="{% static 'images/tiffin.png' %}" alt="Project 5" class="project-image">
+                    <div class="project-details">
+                        <h3>Tiffin</h3>
+                        <p>A website for a counting my food orders.</p>
+                        <a href="#" class="project-link" target="_blank">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Additional Project Card 6 -->
+                <div class="project-card" style="grid-column: span 2; grid-row: span 1;">
+                    <img src="{% static 'images/nextgencv.png' %}" alt="Project 6" class="project-image">
+                    <div class="project-details">
+                        <h3>NextGenCV</h3>
+                        <p>An AI-powered resume builder </p>
+                        <a href="#" class="project-link" target="_blank">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-stack-section">
+        <h2 class="section-title">Tech Stack!!!</h2>
+        <p>A list of my favorite tools and technologies that I use on a regular basis.</p>
+        <div class="tech-stack-grid">
+            <div class="tech-card" style="background-color: rgba(76, 175, 80, 0.4);">
+                <div class="tech-card-content">
+                    <img src="{% static 'images/techstack/django.png' %}" alt="Node.js" class="tech-icon">
+                    <div class="divider"></div>
+                    <h3>Django</h3>
+                </div>
+            </div>
+            <div class="tech-card" style="background-color: rgba(33, 150, 243, 0.4);">
+                <div class="tech-card-content">
+                    <img src="{% static 'images/techstack/react.png' %}" alt="ReactJS" class="tech-icon">
+                    <div class="divider"></div>
+                    <h3>ReactJS</h3>
+                </div>
+            </div>
+            <div class="tech-card" style="background-color: rgba(33, 150, 243, 0.4);">
+                <div class="tech-card-content">
+                    <img src="{% static 'images/techstack/bootstrap.png' %}" alt="Bootstrap" class="tech-icon">
+                    <div class="divider"></div>
+                    <h3>Bootstrap</h3>
+                </div>
+            </div>
+            <div class="tech-card" style="background-color: rgba(255, 152, 0, 0.4);">
+                <div class="tech-card-content">
+                    <img src="{% static 'images/techstack/database.png' %}" alt="SvelteJS" class="tech-icon">
+                    <div class="divider"></div>
+                    <h3>SQlite</h3>
+                </div>
+            </div>
+            <div class="tech-card" style="background-color: rgba(156, 39, 176, 0.4);">
+                <div class="tech-card-content">
+                    <img src="{% static 'images/techstack/js.png' %}" alt="Next.js" class="tech-icon">
+                    <div class="divider"></div>
+                    <h3>JavaScript</h3>
+                </div>
+            </div>
+            <div class="tech-card" style="background-color: rgba(76, 175, 80, 0.4);">
+                <div class="tech-card-content">
+                    <img src="{% static 'images/techstack/tcss.png' %}" alt="Nuxt.js" class="tech-icon">
+                    <div class="divider"></div>
+                    <h3>Tailwind CSS</h3>
+                </div>
+            </div>
+            <div class="tech-card" style="background-color: rgba(233, 30, 99, 0.4);">
+                <div class="tech-card-content">
+                    <img src="{% static 'images/techstack/html.png' %}" alt="HTML5" class="tech-icon">
+                    <div class="divider"></div>
+                    <h3>HTML5</h3>
+                </div>
+            </div>
+            <div class="tech-card" style="background-color: rgba(63, 81, 181, 0.4);">
+                <div class="tech-card-content">
+                    <img src="{% static 'images/techstack/css.png' %}" alt="CSS3" class="tech-icon">
+                    <div class="divider"></div>
+                    <h3>CSS3</h3>
+                </div>
+            </div>
+            <div class="tech-card" style="background-color: rgba(251, 243, 4, 0.4);">
+                <div class="tech-card-content">
+                    <img src="{% static 'images/techstack/python.png' %}" alt="Python" class="tech-icon">
+                    <div class="divider"></div>
+                    <h3>Python</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="col col1">
+          <h3>NextGenCV</h3>
+          <p>Made with <span style="color: #BA6573;">❤</span> by MustafaPinjari</p>
+          <div class="social">
+            <a href="https://www.linkedin.com/in/mustafa-pinjari-287625256/" target="_blank" class="link">
+              <img src="{% static "images/linkedin.png" %}" alt="LinkedIn" />
+            </a>
+            <a href="https://github.com/MustafaPinjari" target="_blank" class="link">
+              <img src="{% static "images/github.png" %}" alt="GitHub" />
+            </a>
+            <a href="https://www.instagram.com/its_ur_musuuu" target="_blank" class="link">
+              <img src="{% static 'images/instagram.png' %}" alt="Instagram" />
+            </a>
+            <a href="https://codepen.io/-MUSTAFA-" target="_blank" class="link">
+              <img src="{% static "images/codepen.png" %}" alt="codepen" />
+            </a>
+            <a href="https://stackoverflow.com/users/26745237/mustafapinjari)" target="_blank" class="link">
+              <img src="{% static "images/stackoverflow.png" %}" alt="stackoverflow" />
+            </a>
+            <a href="https://leetcode.com/u/Mustafa_Pinjari/" target="_blank" class="link">
+              <img src="{% static "images/leetcode.png" %}" alt="LeetCode" />
+            </a>
+          </div>
+          <p style="color: #818181; font-size: smaller">2024 © All Rights Reserved</p>
+        </div>
+        <div class="col col2">
+          <p>About</p>
+          <p>Our mission</p>
+          <p>Privacy Policy</p>
+          <p>Terms of service</p>
+        </div>
+        <div class="col col3">
+          <p>Services</p>
+          <p>Products</p>
+          <p>Join our team</p>
+          <p>Partner with us</p>
+        </div>
+        <div class="backdrop"></div>
+      </footer>
+    
+</body>
+</html>

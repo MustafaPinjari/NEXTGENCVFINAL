@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGenCV</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=ZenLoop-Italic:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/CardsResumeSample.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/Dashboard.css' %}">
+</head>
+<body>
+  <!-- Navbar -->
+  {% include "NextGenCV/navbar.html" %}
+
+  <!-- Hero Section -->
+  <section class="hero-section" style="font-family: 'Shadows Into Light', cursive;">
+    <div class="hero-content">
+      <h1>Welcome to NextGenCV</h1>
+      <p>Your journey to the perfect resume starts here.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="left-side">
+      <p>Create a beautiful resume quickly with the help of artificial intelligence and our customizable templates. Impress your future employer with a perfect resume created in minutes.</p>
+
+      <button>
+        <span class="text">Create Resume</span>
+      </button>
+      <button>
+        <span class="text">See Example</span>
+      </button>
+    </div>
+    <div class="card">
+      <a href="#footer">
+        <img class="resume-image" src="{% static 'images/rs.png' %}" alt="Resume Image">
+      </a>
+    </div>
+  </div>
+
+  <!-- Templates Section -->
+  {% include "NextGenCV/ResumeTemplates.html" %}
+
+  <footer id="footer">
+    <div class="col col1">
+      <h3>NextGenCV</h3>
+      <p>Made with <span style="color: #BA6573;">❤</span> by MustafaPinjari</p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/mustafa-pinjari-287625256/" target="_blank" class="link">
+          <img src="{% static "images/linkedin.png" %}" alt="LinkedIn" />
+        </a>
+        <a href="https://github.com/MustafaPinjari" target="_blank" class="link">
+          <img src="{% static "images/github.png" %}" alt="GitHub" />
+        </a>
+        <a href="https://www.instagram.com/its_ur_musuuu" target="_blank" class="link">
+          <img src="{% static 'images/instagram.png' %}" alt="Instagram" />
+        </a>
+        <a href="https://codepen.io/-MUSTAFA-" target="_blank" class="link">
+          <img src="{% static "images/codepen.png" %}" alt="codepen" />
+        </a>
+        <a href="https://stackoverflow.com/users/26745237/mustafapinjari)" target="_blank" class="link">
+          <img src="{% static "images/stackoverflow.png" %}" alt="stackoverflow" />
+        </a>
+        <a href="https://leetcode.com/u/Mustafa_Pinjari/" target="_blank" class="link">
+          <img src="{% static "images/leetcode.png" %}" alt="LeetCode" />
+        </a>
+      </div>
+      <p style="color: #818181; font-size: smaller">2024 © All Rights Reserved</p>
+    </div>
+    <div class="col col2">
+      <p>About</p>
+      <p>Our mission</p>
+      <p>Privacy Policy</p>
+      <p>Terms of service</p>
+    </div>
+    <div class="col col3">
+      <p>Services</p>
+      <p>Products</p>
+      <p>Join our team</p>
+      <p>Partner with us</p>
+    </div>
+    <div class="backdrop"></div>
+  </footer>
+</body>
+</html>

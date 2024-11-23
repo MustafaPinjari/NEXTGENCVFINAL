@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Resume - NextGenCV</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  {% include "NextGenCV/navbar.html" %}
+
+  {% comment %} Hero Section {% endcomment %}
+  <section class="build-resume-hero">
+    <div class="build-resume-content">
+      <h1>Build Your Resume</h1>
+      <p>Craft a professional resume with our easy-to-use tools.</p>
+    </div>
+  </section>
+
+  <div class="build-resume-container">
+    <div class="build-resume-left">
+      <h2>Choose a Template</h2>
+      <div class="template-card">
+        <img src="{% static 'images/ResumeSample2.png' %}" alt="Template 1">
+        <h3>Template 1</h3>
+        <button class="template-select-button">Select Template</button>
+      </div>
+      <div class="template-card">
+        <img src="{% static 'images/ResumeSample.png' %}" alt="Template 2">
+        <h3>Template 2</h3>
+        <button class="template-select-button">Select Template</button>
+      </div>
+      <div class="template-card">
+        <img src="{% static 'images/ResumeSample1.png' %}" alt="Template 2">
+        <h3>Template 3</h3>
+        <button class="template-select-button">Select Template</button>
+      </div>
+      <div class="template-card">
+        <img src="{% static 'images/ResumeSample3.png' %}" alt="Template 2">
+        <h3>Template 2</h3>
+        <button class="template-select-button">Select Template</button>
+      </div>
+      <div class="template-card">
+        <img src="{% static 'images/ResumeSample4.png' %}" alt="Template 2">
+        <h3>Template 4</h3>
+        <button class="template-select-button">Select Template</button>
+      </div>
+      <div class="template-card">
+        <img src="{% static 'images/ResumeSample5.png' %}" alt="Template 2">
+        <h3>Template 5</h3>
+        <button class="template-select-button">Select Template</button>
+      </div>
+      <div class="template-card">
+        <img src="{% static 'images/ResumeSample6.png' %}" alt="Template 2">
+        <h3>Template 6</h3>
+        <button class="template-select-button">Select Template</button>
+      </div>
+
+      <!-- Add more templates as needed -->
+    </div>
+
+  </div>
+
+  {% comment %} Footer {% endcomment %}
+  {% include "NextGenCV/Footer.html" %}
+</body>
+</html>

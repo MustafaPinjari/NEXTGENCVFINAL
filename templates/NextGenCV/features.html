@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - NextGenCV</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/features.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    {% include "NextGenCV/navbar.html" %}
+
+    <section class="features-section">
+        <div class="features-header">
+            <h1>Features of NextGenCV</h1>
+            <p>Discover the powerful features that make NextGenCV the best choice for creating your resume.</p>
+        </div>
+        <div class="features-list">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="{% static 'images/ai.png' %}" alt="AI-Powered Resume Builder" />
+                </div>
+                <h2>AI-Powered Resume Builder</h2>
+                <p>Utilize artificial intelligence to create a professional resume in minutes.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="{% static 'images/template.png' %}" alt="Customizable Templates" />
+                </div>
+                <h2>Customizable Templates</h2>
+                <p>Choose from a variety of templates that suit your style and profession.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="{% static 'images/preview.png' %}" alt="Live Preview" />
+                </div>
+                <h2>Live Preview</h2>
+                <p>See real-time updates as you fill out your resume, ensuring it looks perfect.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="{% static 'images/downloading.png' %}" alt="Download Options" />
+                </div>
+                <h2>Download Options</h2>
+                <p>Download your resume in multiple formats including PDF, DOCX, and JPEG.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="{% static 'images/personal.png' %}" alt="Secure User Accounts" />
+                </div>
+                <h2>Secure User Accounts</h2>
+                <p>Your data is safe with us. Create an account to save and manage your resumes securely.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="{% static 'images/responsive-design.png' %}" alt="Responsive Design" />
+                </div>
+                <h2>Responsive Design</h2>
+                <p>Access your resume builder from any device, whether it's a desktop, tablet, or mobile.</p>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="col col1">
+          <h3>NextGenCV</h3>
+          <p>Made with <span style="color: #BA6573;">❤</span> by MustafaPinjari</p>
+          <div class="social">
+            <a href="https://www.linkedin.com/in/mustafa-pinjari-287625256/" target="_blank" class="link">
+              <img src="{% static "images/linkedin.png" %}" alt="LinkedIn" />
+            </a>
+            <a href="https://github.com/MustafaPinjari" target="_blank" class="link">
+              <img src="{% static "images/github.png" %}" alt="GitHub" />
+            </a>
+            <a href="https://www.instagram.com/its_ur_musuuu" target="_blank" class="link">
+              <img src="{% static 'images/instagram.png' %}" alt="Instagram" />
+            </a>
+            <a href="https://codepen.io/-MUSTAFA-" target="_blank" class="link">
+              <img src="{% static "images/codepen.png" %}" alt="codepen" />
+            </a>
+            <a href="https://stackoverflow.com/users/26745237/mustafapinjari)" target="_blank" class="link">
+              <img src="{% static "images/stackoverflow.png" %}" alt="stackoverflow" />
+            </a>
+            <a href="https://leetcode.com/u/Mustafa_Pinjari/" target="_blank" class="link">
+              <img src="{% static "images/leetcode.png" %}" alt="LeetCode" />
+            </a>
+          </div>
+          <p style="color: #818181; font-size: smaller">2024 © All Rights Reserved</p>
+        </div>
+        <div class="col col2">
+          <p>About</p>
+          <p>Our mission</p>
+          <p>Privacy Policy</p>
+          <p>Terms of service</p>
+        </div>
+        <div class="col col3">
+          <p>Services</p>
+          <p>Products</p>
+          <p>Join our team</p>
+          <p>Partner with us</p>
+        </div>
+        <div class="backdrop"></div>
+      </footer>
+    
+</body>
+</html>
